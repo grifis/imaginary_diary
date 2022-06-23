@@ -30,6 +30,9 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/diaries', [DiaryController::class, 'index']);   //一覧表示
+Route::get('/diaries', [DiaryController::class, 'index']);          //一覧表示
+Route::get('/diary/create', [DiaryController::class, 'create']);    //日記投稿
+Route::post('/diary', [DiaryController::class, 'store']);           //日記保存
+Route::get('/diary/{diary}', [DiaryController::class, 'show']);     //詳細表示
 
 require __DIR__.'/auth.php';

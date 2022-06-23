@@ -8,11 +8,14 @@
     </head>
     <body>
         <h1>松本家架空日記</h1>
+        [<a href='/diary/create'>create</a>]
         <div class='diaries'>
             @foreach($diaries as $diary)
                 <hr>
                 <div class='diary'>
-                    <h2 class='title'>{{ $diary->title }}</h2>
+                    <h2 class='title'>
+                        <a href="/diary/{{ $diary->id }}">{{ $diary->title }}</a>
+                    </h2>
                     @if($diary->year < 0)
                         <h3 class='date'>紀元前{{ -1*$diary->year }}年@date_jp($diary->date)</h3>
                     @else

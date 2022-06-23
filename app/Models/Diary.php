@@ -14,6 +14,10 @@ class Diary extends Model
         'date',
     ];
     
+    protected $fillable = [
+        'user_id', 'title', 'body', 'image', 'audio', 'year', 'date',
+    ];
+    
     public function user()
     {
         return $this->belongsTo('App\Models\User');
