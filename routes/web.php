@@ -4,6 +4,8 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
+use App\Http\Controllers\DiaryController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,5 +29,7 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/diaries', [DiaryController::class, 'index']);   //一覧表示
 
 require __DIR__.'/auth.php';

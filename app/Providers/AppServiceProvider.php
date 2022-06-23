@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Blade;  
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,5 +25,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         \URL::forceScheme('https');
+        
+        //date型の表示形式変換
+        Blade::directive('date_jp', function ($expression) {
+            return "<?php echo ($expression)->format('m月d日'); ?>";
+        });
     }
 }

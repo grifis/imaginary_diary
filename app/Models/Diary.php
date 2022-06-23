@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Diary extends Model
 {
     use HasFactory;
+    
+    //date型の表示形式変換
+    protected $dates = [
+        'date',
+    ];
+    
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
 }
