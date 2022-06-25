@@ -1,3 +1,9 @@
+.wrapper{
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
 #top {
     background-image: url(../image/background.jpg);
     background-size: cover;
@@ -30,4 +36,15 @@
 
 a {
     text-decoration: none;
+}
+
+
+#diary {
+    background-image: url(../image/gray-bg.jpg);
+    background-size: cover;
+    text-align: center;
+}
+.diary{
+    width: 75%;
+    margin: 0 auto;
 }
