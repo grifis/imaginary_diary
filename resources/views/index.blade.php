@@ -26,5 +26,6 @@
                 </div>
             @endforeach
         </div>
+        <a href="/">戻る</a>
     </body>
 </html>
