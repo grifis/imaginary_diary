@@ -1,0 +1,27 @@
+#top {
+    background-image: url(../image/background.jpg);
+    background-size: cover;
+    text-align: center;
+    
+}
+
+.title {
+    background-color: #000;
+    margin: 15% 25% 0;
+}
+.title h1 {
+    font-size: 10vh;
+    color: #FFF;
+    font-family: serif;
+}
+
+.menu {
+     background-color: #000;
+     margin: 0 40%;
+}
+.menu h1 {
+    font-size: 4vh;
+    color: #FFF;
+    font-family: serif;
+    text-decoration: none;
+}

@@ -20,6 +20,6 @@
             <p class='body'>{{ $diary->body }}</p>
             <p class='writer'>{{ $diary->user->name }}</p>
         </div>
-        <a href="/diaries">戻る</a>
+        <a href="/">戻る</a>
     </body>
 </html>

@@ -8,10 +8,21 @@ use Inertia\Inertia;
 
 class DiaryController extends Controller
 {
+    public function top()
+    {
+        return view('top');
+    }
+    
     public function index(Diary $diary)
     {
-        return Inertia::render('Index',['diaries' => $diary->get()]);
+        return view('index')->with(['diaries' => $diary->get()]);
     }
+    
+    // Vue.jsを使おうとした残骸
+    // public function index(Diary $diary)
+    // {
+    //     return Inertia::render('Index',['diaries' => $diary->get()]);
+    // }
     
     public function show(Diary $diary)
     {

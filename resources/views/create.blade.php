@@ -29,7 +29,6 @@
             <input type="submit" value="保存"/>
         </form>
         
-        
-        <a href="/diaries">戻る</a>
+        <a href="/">戻る</a>
     </body>
 </html>
