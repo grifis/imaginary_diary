@@ -5,21 +5,24 @@
         <title>架空日記 | 第2回松本家展</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     </head>
-    <body>
+    <body class="wrapper" id="diary">
         <h1>松本家架空日記</h1>
+        <hr>
         <div class='diary'>
-            <h2 class='title'>
+            <h2 class='diary-title'>
                 <a href="/diary/{{ $diary->id }}">{{ $diary->title }}</a>
             </h2>
             @if($diary->year < 0)
-                <h3 class='date'>紀元前{{ -1*$diary->year }}年@date_jp($diary->date)</h3>
+                <h3 class='diary-date'>紀元前{{ -1*$diary->year }}年@date_jp($diary->date)</h3>
             @else
-                <h3 class='date'>{{ $diary->year }}年@date_jp($diary->date)</h3>
+                <h3 class='diary-date'>{{ $diary->year }}年@date_jp($diary->date)</h3>
             @endif
-            <p class='body'>{{ $diary->body }}</p>
-            <p class='writer'>{{ $diary->user->name }}</p>
+            <p class='diary-body'>{{ $diary->body }}</p>
+            <p class='diary-writer'>{{ $diary->user->name }}</p>
         </div>
+        <hr>
         <a href="/">戻る</a>
     </body>
 </html>
