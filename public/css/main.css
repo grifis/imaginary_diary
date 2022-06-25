@@ -23,5 +23,11 @@
     font-size: 4vh;
     color: #FFF;
     font-family: serif;
+}
+.menu h1:hover {
+    color: #808000;
+}
+
+a {
     text-decoration: none;
 }
