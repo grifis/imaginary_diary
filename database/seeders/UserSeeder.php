@@ -22,11 +22,19 @@ class UserSeeder extends Seeder
                 'name' => '筏千丸',
                 'email' => Str::random(10).'@gmail.com',
                 'password' => Hash::make('password'),
+                'role' => 5,
             ],
             [
                 'name' => '松本隼也',
                 'email' => Str::random(10).'@gmail.com',
-                'password' => Hash::make('password'),   
+                'password' => Hash::make('password'),
+                'role' => 5,
+            ],
+            [
+                'name' => 'admin',
+                'email' => 'admin@email.com',
+                'password' => bcrypt('matsumotokefictiondiary'),
+                'role' => 1,
             ]
         ]);
     }

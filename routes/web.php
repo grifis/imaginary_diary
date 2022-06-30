@@ -4,6 +4,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DiaryController;
 
 /*
@@ -29,6 +30,11 @@ use App\Http\Controllers\DiaryController;
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware(['auth', 'can:isAdmin'])->group(function(){        //管理者用ページ
+    Route::get('/admin/index', [AdminController::class, 'index']);
+    Route::delete('/admin/{diary}', [AdminController::class, 'delete']);
+});
 
 Route::get('/', [DiaryController::class, 'top']);                   //一覧表示
 Route::get('/diaries', [DiaryController::class, 'index']);          //一覧表示
