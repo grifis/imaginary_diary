@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\DiaryRequest;
 use App\Models\Diary;
 use Inertia\Inertia;
 
@@ -34,7 +35,7 @@ class DiaryController extends Controller
         return view('create');
     }
     
-    public function store(Request $request, Diary $diary)
+    public function store(DiaryRequest $request, Diary $diary)
     {
         $input = $request['diary'];
         $input += ['user_id' => $request->user()->id];
@@ -45,6 +46,6 @@ class DiaryController extends Controller
     public function random()
     {
         $diaries = Diary::all()->pluck('id')->toArray();
-        return redirect("/diary/".(array_rand($diaries)+1));
+        return redirect("/diary/".$diaries[(array_rand($diaries))]);
     }
 }
