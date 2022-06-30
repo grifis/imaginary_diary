@@ -20,5 +20,8 @@
         <a href='/diary/create'><div class="menu">
             <h1>日記を書く</h1>
         </div></a>
+        <a href='/diary/random'><div class="menu">
+            <h1>日記を開く</h1>
+        </div></a>
     </body>
 </html>

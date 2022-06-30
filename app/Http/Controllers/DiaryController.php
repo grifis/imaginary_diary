@@ -41,4 +41,10 @@ class DiaryController extends Controller
         $diary->fill($input)->save();
         return redirect('/diary/' . $diary->id);
     }
+    
+    public function random()
+    {
+        $diaries = Diary::all()->pluck('id')->toArray();
+        return redirect("/diary/".array_rand($diaries));
+    }
 }

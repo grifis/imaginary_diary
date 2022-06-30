@@ -35,6 +35,7 @@ Route::get('/diaries', [DiaryController::class, 'index']);          //一覧表�
 Route::get('/diary/create', [DiaryController::class, 'create'])     //日記投稿
     ->middleware(['auth', 'verified'])->name('dashboard'); 
 Route::post('/diary', [DiaryController::class, 'store']);           //日記保存
+Route::get('/diary/random', [DiaryController::class, 'random']);     //ランダムに詳細表示
 Route::get('/diary/{diary}', [DiaryController::class, 'show']);     //詳細表示
 
 require __DIR__.'/auth.php';
