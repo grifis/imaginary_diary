@@ -18,6 +18,13 @@ class Diary extends Model
         'user_id', 'title', 'body', 'image', 'audio', 'year', 'date',
     ];
     
+    // 日付順ソート
+    // 未来->過去
+    public function getByDate()
+    {
+        return $this->orderBy("year","DESC")->orderBy("date","DESC")->get();
+    }
+    
     public function user()
     {
         return $this->belongsTo('App\Models\User');

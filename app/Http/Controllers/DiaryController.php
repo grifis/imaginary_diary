@@ -15,7 +15,7 @@ class DiaryController extends Controller
     
     public function index(Diary $diary)
     {
-        return view('index')->with(['diaries' => $diary->get()]);
+        return view('index')->with(['diaries' => $diary->getByDate()]);
     }
     
     // Vue.jsを使おうとした残骸
@@ -45,6 +45,6 @@ class DiaryController extends Controller
     public function random()
     {
         $diaries = Diary::all()->pluck('id')->toArray();
-        return redirect("/diary/".array_rand($diaries));
+        return redirect("/diary/".(array_rand($diaries)+1));
     }
 }
