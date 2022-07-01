@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\DiaryRequest;
 use App\Models\Diary;
 use Inertia\Inertia;
 
@@ -15,7 +16,7 @@ class DiaryController extends Controller
     
     public function index(Diary $diary)
     {
-        return view('index')->with(['diaries' => $diary->get()]);
+        return view('index')->with(['diaries' => $diary->getByDate()]);
     }
     
     // Vue.jsを使おうとした残骸
@@ -34,11 +35,17 @@ class DiaryController extends Controller
         return view('create');
     }
     
-    public function store(Request $request, Diary $diary)
+    public function store(DiaryRequest $request, Diary $diary)
     {
         $input = $request['diary'];
         $input += ['user_id' => $request->user()->id];
         $diary->fill($input)->save();
         return redirect('/diary/' . $diary->id);
+    }
+    
+    public function random()
+    {
+        $diaries = Diary::all()->pluck('id')->toArray();
+        return redirect("/diary/".$diaries[(array_rand($diaries))]);
     }
 }
