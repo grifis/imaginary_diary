@@ -14,14 +14,11 @@
         <a href='/diaries'><div class="menu">
             <h1>一覧を見る</h1>
         </div></a>
-        <a href='/diary/1'><div class="menu">
-            <h1>日記を読む</h1>
+        <a href='/diary/random'><div class="menu">
+            <h1>日記を開く</h1>
         </div></a>
         <a href='/diary/create'><div class="menu">
             <h1>日記を書く</h1>
-        </div></a>
-        <a href='/diary/random'><div class="menu">
-            <h1>日記を開く</h1>
         </div></a>
     </body>
 </html>
