@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\DiaryRequest;
 use App\Models\Diary;
+use App\Events\DiaryWrited;
 use Inertia\Inertia;
 
 class DiaryController extends Controller
@@ -40,6 +41,7 @@ class DiaryController extends Controller
         $input = $request['diary'];
         $input += ['user_id' => $request->user()->id];
         $diary->fill($input)->save();
+        event(new DiaryWrited('Diary Writed'));
         return redirect('/diary/' . $diary->id);
     }
     
