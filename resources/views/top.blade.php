@@ -7,17 +7,17 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <link href="{{ asset('css/main.css') }}" rel="stylesheet">
         <script src="https://js.pusher.com/7.1/pusher.min.js"></script>
-         <script>
+        <script>
             // Enable pusher logging - don't include this in production
             Pusher.logToConsole = true;
         
-                var pusher = new Pusher('caf0c3d50f55bd484ac0', {
+            var pusher = new Pusher('caf0c3d50f55bd484ac0', {
                 cluster: 'ap3'
             });
         
-                var channel = pusher.subscribe('my-channel');
-                channel.bind('my-event', function(data) {
-                alert(JSON.stringify(data));
+            var channel = pusher.subscribe('my-channel');
+            channel.bind('my-event', function(data) {
+                FadeInLinkClick();
             });
         </script>
     </head>
@@ -34,7 +34,6 @@
         <a href='/diary/create'><div class="menu">
             <h1>日記を書く</h1>
         </div></a>
-        <a href="javascript:void(0);" onclick="FadeInLinkClick();">フェードイン</a>
         <div id="fadeLayer" class="FadeInFrame"></div>
     </body>
     <script type="text/javascript">
