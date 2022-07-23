@@ -41,7 +41,7 @@ class DiaryController extends Controller
         $input = $request['diary'];
         $input += ['user_id' => $request->user()->id];
         $diary->fill($input)->save();
-        event(new DiaryWrited('Diary Writed'));
+        event(new DiaryWrited('日記が投稿されました'));
         return redirect('/diary/' . $diary->id);
     }
     

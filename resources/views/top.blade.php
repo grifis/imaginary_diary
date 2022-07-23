@@ -34,5 +34,22 @@
         <a href='/diary/create'><div class="menu">
             <h1>日記を書く</h1>
         </div></a>
+        <a href="javascript:void(0);" onclick="FadeInLinkClick();">フェードイン</a>
+        <div id="fadeLayer" class="FadeInFrame"></div>
     </body>
+    <script type="text/javascript">
+        function FadeInLinkClick() {
+            var frame = document.getElementById("fadeLayer");
+            frame.className = "FadeInFrame fadein";
+            frame.style.visibility = "visible";
+            frame.addEventListener('transitionend', () => {
+                FadeOut();
+            })
+        }
+        function FadeOut() {
+            var frame = document.getElementById("fadeLayer");
+            frame.className = "FadeInFrame";
+            frame.style.visibility = "hidden";
+        }
+    </script>
 </html>
