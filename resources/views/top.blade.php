@@ -35,6 +35,7 @@
             <h1>日記を書く</h1>
         </div></a>
         <button type="button" onclick="FadeInLinkClick()">暗転テスト</button>
+        <button type="button" onclick="location.href='{{ route('register') }}'">ユーザー登録</button>
         <div id="fadeLayer" class="FadeInFrame"></div>
     </body>
     <script type="text/javascript">
