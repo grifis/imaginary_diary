@@ -34,6 +34,7 @@
         <a href='/diary/create'><div class="menu">
             <h1>日記を書く</h1>
         </div></a>
+        <button type="button" onclick="FadeInLinkClick()">暗転テスト</button>
         <div id="fadeLayer" class="FadeInFrame"></div>
     </body>
     <script type="text/javascript">
