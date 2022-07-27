@@ -20,7 +20,6 @@
                 <h3 class='diary-date'>{{ $diary->year }}年@date_jp($diary->date)</h3>
             @endif
             <p class='diary-body'>{{ $diary->body }}</p>
-            <p class='diary-writer'>{{ $diary->user->name }}</p>
         </div>
         <hr>
         <a href="/">戻る</a>
