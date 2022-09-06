@@ -10,32 +10,34 @@ use Inertia\Inertia;
 
 class DiaryController extends Controller
 {
-    public function top()
+    public function top(Diary $diary)
     {
-        return view('top');
+        return Inertia::render('top', [
+            'diaries' => $diary->getByDate()
+        ]);
     }
-    
+
     public function index(Diary $diary)
     {
         return view('index')->with(['diaries' => $diary->getByDate()]);
     }
-    
+
     // Vue.jsを使おうとした残骸
     // public function index(Diary $diary)
     // {
     //     return Inertia::render('Index',['diaries' => $diary->get()]);
     // }
-    
+
     public function show(Diary $diary)
     {
         return view('show')->with(['diary' => $diary]);
     }
-    
+
     public function create()
     {
         return view('create');
     }
-    
+
     public function store(DiaryRequest $request, Diary $diary)
     {
         $input = $request['diary'];
@@ -44,7 +46,7 @@ class DiaryController extends Controller
         event(new DiaryWrited());
         return redirect('/diary/' . $diary->id);
     }
-    
+
     public function random()
     {
         $diaries = Diary::all()->pluck('id')->toArray();

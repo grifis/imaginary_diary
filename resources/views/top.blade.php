@@ -10,11 +10,11 @@
         <script>
             // Enable pusher logging - don't include this in production
             Pusher.logToConsole = true;
-        
+
             var pusher = new Pusher('caf0c3d50f55bd484ac0', {
                 cluster: 'ap3'
             });
-        
+
             var channel = pusher.subscribe('my-channel');
             channel.bind('my-event', function(data) {
                 FadeInLinkClick();

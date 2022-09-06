@@ -24,7 +24,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        \URL::forceScheme('https');
+        if(config('app.env') === "production") {
+            \URL::forceScheme('https');
+        }
         
         //date型の表示形式変換
         Blade::directive('date_jp', function ($expression) {
