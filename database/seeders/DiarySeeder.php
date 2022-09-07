@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use App\Models\Diary;
 
 class DiarySeeder extends Seeder
 {
@@ -54,5 +55,9 @@ class DiarySeeder extends Seeder
                 'date' => '1000-08-31',
             ]
         ]);
+
+        for ($i=1; $i<=6; $i++) {
+            Diary::find($i)->storeImage()->save();
+        }
     }
 }
