@@ -42,7 +42,7 @@ class DiaryController extends Controller
     {
         $input = $request['diary'];
         $input += ['user_id' => $request->user()->id];
-        $diary->fill($input)->save();
+        $diary->fill($input)->storeImage()->save();
         event(new DiaryWrited());
         return redirect('/diary/' . $diary->id);
     }

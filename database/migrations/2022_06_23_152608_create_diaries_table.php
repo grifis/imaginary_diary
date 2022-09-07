@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('user_id')->unsigned();
             $table->string('title', 50);
             $table->string('body', 3000)->nullable();
-            $table->string('image', 100)->nullable();
+            $table->string('image_path', 100)->nullable();
             $table->string('audio', 100)->nullable();
             $table->integer('year');    //マイナスの符号によって紀元前を表現
             $table->date('date');       //紀元前１万年まで扱えないために'year'を分離
