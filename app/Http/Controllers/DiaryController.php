@@ -35,7 +35,7 @@ class DiaryController extends Controller
 
     public function create()
     {
-        return view('create');
+        return Inertia::render('Create');
     }
 
     public function store(DiaryRequest $request, Diary $diary)
