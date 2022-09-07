@@ -67,16 +67,20 @@ class Diary extends Model
     {
         $template_path = public_path('images/diary.jpg');
         $img = Image::make($template_path);
+        $fonts = ['font/mogihaPen.ttf', 'font/beautiful_font.ttf', 'font/shokakisarari.ttf', 'font/acgyosyo.ttf'];
+        $font_path = public_path($fonts[array_rand($fonts, 1)]);
+        $colors = ['#000000', '#281a14', '#0d0015', '#16160e', '#333631', '#250d00'];
+        $color = $colors[array_rand($colors,1)];
 
         // タイトル
         $word = $this->title;
         $x = 260 - strlen($word) / 2 * 8;
         $y = 220;
 
-       $img->text($word, $x, $y, function($font){
-            $font->file(public_path('font/setofont.ttf')); // 日本語フォントファイル
+       $img->text($word, $x, $y, function($font) use ($font_path, $color){
+            $font->file($font_path); // 日本語フォントファイル
             $font->size(25); // 文字サイズ
-            $font->color('#000000'); // 文字色
+            $font->color($color); // 文字色
         });
 
         // 日付
@@ -84,10 +88,10 @@ class Diary extends Model
         $x = 300;
         $y = 137;
 
-        $img->text($word, $x, $y, function($font){
-            $font->file(public_path('font/setofont.ttf')); // 日本語フォントファイル
+        $img->text($word, $x, $y, function($font) use ($font_path, $color){
+            $font->file($font_path); // 日本語フォントファイル
             $font->size(17); // 文字サイズ
-            $font->color('#000000'); // 文字色
+            $font->color($color); // 文字色
         });
 
         // 名前
@@ -95,10 +99,10 @@ class Diary extends Model
         $x = 330;
         $y = 167;
 
-        $img->text($word, $x, $y, function($font){
-            $font->file(public_path('font/setofont.ttf')); // 日本語フォントファイル
+        $img->text($word, $x, $y, function($font) use ($font_path, $color){
+            $font->file($font_path); // 日本語フォントファイル
             $font->size(17); // 文字サイズ
-            $font->color('#000000'); // 文字色
+            $font->color($color); // 文字色
         });
 
         // 本文
@@ -107,10 +111,10 @@ class Diary extends Model
         for($i = 0; $i < count($body); $i++) {
             $y = 280 + $i * 33;
             $word = $body[$i];
-            $img->text($word, $x, $y, function($font){
-                $font->file(public_path('font/setofont.ttf')); // 日本語フォントファイル
+            $img->text($word, $x, $y, function($font) use ($font_path, $color){
+                $font->file($font_path); // 日本語フォントファイル
                 $font->size(22); // 文字サイズ
-                $font->color('#000000'); // 文字色
+                $font->color($color); // 文字色
             });
         }
         // 保存
